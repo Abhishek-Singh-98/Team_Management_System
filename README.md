@@ -158,3 +158,21 @@ Common errors include:
 - **422 Unprocessable Entity**: Validation errors on input data.
 - **400 Bad Request**: When Token passed or wrong token passed.
 - **200 Success**: When a process successfully gives expected response with some data.
+
+## For Local setup
+- To set up the project locally:
+
+```bash
+git clone https://github.com/Abhishek-Singh-98/Team_Management_System.git
+cd Team_Management_System
+bundle install
+rails db:setup
+rails server
+
+```
+## For Checking your project db
+```bash
+rails dbconsole
+\dt #it will give you all the tables present
+\q #quit console
+```

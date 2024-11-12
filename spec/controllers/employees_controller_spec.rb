@@ -52,27 +52,27 @@ RSpec.describe EmployeesController, type: :controller do
         expect(parsed_response(response)).to include(team_lead.id)
       end
 
-      it 'must give err for role missing params' do
+      it 'must give error for role missing params' do
         get :list_available_employees, params:{token: @man_token, employee_id: manager1.id, role: nil}
         expect(response).to have_http_status(200)
         expect(JSON.parse(response.body)['error']).to include('Missing role')
       end
 
-      it 'must filter the employees accordeing to last_name' do
+      it 'must filter the employees according to last_name' do
         get :list_available_employees, params:{token: @man_token, employee_id: manager1.id,
                             role: 'Employee', case: 'last_name', query: employee1.last_name}
         expect(response).to have_http_status(200)
         expect(parsed_response(response)).to include(employee1.id)
       end
 
-      it 'must filter the employees accordeing to first_name' do
+      it 'must filter the employees according to first_name' do
         get :list_available_employees, params:{token: @man_token, employee_id: manager1.id,
                             role: 'Employee', case: 'first_name', query: employee1.first_name}
         expect(response).to have_http_status(200)
         expect(parsed_response(response)).to include(employee1.id)
       end
 
-      it 'must filter the employees accordeing to email' do
+      it 'must filter the employees according to email' do
         get :list_available_employees, params:{token: @man_token, employee_id: manager1.id,
                             role: 'Employee', case: 'email', query: employee2.email}
         expect(response).to have_http_status(200)

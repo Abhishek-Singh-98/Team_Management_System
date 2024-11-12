@@ -18,5 +18,12 @@ module TeamManagementSystem
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # 
+    config.generators do |g|
+      g.factory_bot dir: 'spec/factories'
+    end
+
+    # Ensure FactoryBot loads files from the custom directory
+    config.factory_bot.definition_file_paths = ["spec/factories"]
   end
 end
